@@ -1,0 +1,22 @@
+{
+  "name": "notion-js",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leohnlee/notion-js.git"
+  },
+  "author": "jubin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leohnlee/notion-js/issues"
+  },
+  "homepage": "https://github.com/leohnlee/notion-js#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
