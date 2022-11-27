@@ -18,3 +18,5 @@ $ npm install
 ```shell
 $ DEBUG=myapp:* npm start
 ```
+
+## Project Structure
