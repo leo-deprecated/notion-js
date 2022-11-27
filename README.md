@@ -9,14 +9,14 @@ $ npm install express --save
 $ npm install express-generator -g
 $ express --view=pug notion-js
 
-$ cd myapp
+$ cd notion-js
 $ npm install
 ```
 
 ### Run
 
 ```shell
-$ DEBUG=myapp:* npm start
+$ DEBUG=notion-js:* npm start
 ```
 
 ## Project Structure
