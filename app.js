@@ -4,9 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
 var app = express();
 
 // view engine setup
@@ -17,10 +14,22 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
+// 정적 파일 연동!!! -------------------------------
+app.use(express.static(path.join(__dirname, 'public')));
+// ------------------------------------------
+
+// 라우터 연동!!-------------------------------
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var jbRouter = require('./routes/jb');
+// ------------------------------------------
+
+// 라우터 사용!!-------------------------------
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/jb', jbRouter);
+// ------------------------------------------
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
