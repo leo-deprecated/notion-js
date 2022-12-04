@@ -8,11 +8,11 @@ const sequelize = new Sequelize(
     config.database, config.username, config.password, config,
 );
 
-db.sequelize = sequelize;
+db.sequelize = sequelize; //db 연동
 
 db.Document = Document;
 Document.init(sequelize);
 
-Document.associate(db);
+// Document.associate(db);
 
-module.exports = db;
+module.exports = db; //db라는 json 배열을 exports

@@ -6,7 +6,7 @@ var mysql      = require('mysql');
 var conn = mysql.createConnection({
   host     : '',
   user     : '',
-  password : ''
+  password : '',
   database: 'notion_js'
 });
 
