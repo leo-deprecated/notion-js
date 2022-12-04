@@ -8,7 +8,7 @@ var router = express.Router();
 router.get('/', async(req, res) => {
     try {
         const documents = await Document.findAll();
-        res.render({
+        res.render("document", {
             documents: documents
         });
     } catch (error) {
