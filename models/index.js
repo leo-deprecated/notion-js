@@ -5,7 +5,7 @@ const Document = require('./document');
 
 const db = {};
 const sequelize = new Sequelize(
-    config.database, config.username, config.password, config,
+    config.db.database, config.db.username, config.db.password, config.db,
 );
 
 db.sequelize = sequelize; //db 연동

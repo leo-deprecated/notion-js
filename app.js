@@ -3,8 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const dotenv = require('dotenv');
-dotenv.config();
+const config = require('./config/config')[env];
 
 var app = express();
 
@@ -22,14 +21,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 // ------------------------------------------
 
 
-app.set('port', process.env.PORT || 9000);
+app.set('port', config.app.PORT || 9000);
 
 
 
 const { sequelize } = require('./models'); //index.js 파일에서 models.export = db 에서 db(JSON 객체) 중의 sequeilze라는 key 의 value 를 가지고 오겠다
 sequelize.sync({ force: false })
     .then(() => {
-        console.log(app.get('port'),'데이터베이스 연결 성공');
+        console.log(app.get('port'), '데이터베이스 연결 성공');
     })
     .catch((err) => {
         console.error(err);
