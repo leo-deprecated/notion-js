@@ -1,0 +1,14 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="documents">
+    {% for doc in documents %}
+    <div class="document">
+        <div class="doc-title">
+            <h1>{{doc.title}}</h1>
+        </div>
+        <div class="doc-content">
+            <p>{{doc.contents}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %} {% block script %} {% endblock %}

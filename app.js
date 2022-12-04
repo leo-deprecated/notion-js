@@ -3,22 +3,28 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const env = process.env.NODE_ENV || 'development';
 const config = require('./config/config')[env];
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+const nunjucks = require('nunjucks'); // pug 처럼 html 템플릿 엔진!
+// {% extends 'layout.html' %} 이런 식의 템플릿 문법을 쓸 수 있게 함
 app.set('view engine', 'html');
+nunjucks.configure('views', {
+    express: app,
+    watch: true,
+});
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// 정적 파일 연동!!! -------------------------------
-app.use(express.static(path.join(__dirname, 'public')));
-// ------------------------------------------
+// // 정적 파일 연동!!! -------------------------------
+// app.use(express.static(path.join(__dirname, 'public')));
+// // ------------------------------------------
 
 
 app.set('port', config.app.PORT || 9000);
